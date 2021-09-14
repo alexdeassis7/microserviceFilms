@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: review-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/reviews?serverTimezone=UTC
+    username: root
+    password: secret
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+server: 
+  port: 8003
+# Config de el servidor  
+#Cliente Eureka
+#Para que una aplicación sea identificada en el registro de Eureka, también se debe añadir la dependencia 
+#“spring-cloud-starter-eureka-server”, agregar a la clase de configuración de Spring Boot la anotación @EnableEurekaClient
+#  y configurar su fichero de propiedades.
+eureka: 
+  client:
+    serviceUrl:
+      # Direccion a la que se conecta el microservicio con eureka
+      defaultZone: http://localhost:8761/eureka
+
